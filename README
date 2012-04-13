@@ -16,11 +16,17 @@ Steps to run:
 
 lastexport.py -u last_username
 
-3.- Once it finishes, run make_urls.sh
+3.- Normalize your scrobble (you might have scrobble many times the same song)
+
+sort exported_tracks.txt | uniq > exported_tracks.tmp
+mv exported_tracks.tmp exported_tracks.txt
+
+
+4.- Once it finishes, run make_urls.sh
 
 make_urls.sh
  
-4.- run search.pl, this would search one by one the tracks in spotify.
+5.- run search.pl, this would search one by one the tracks in spotify.
 
  cat exported_tracks.urls | ./search.pl 2> /dev/null > exported_tracks.songs
 
