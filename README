@@ -1,0 +1,44 @@
+README
+
+This software allows to import your lastfm history into a spotify playlist.
+
+It is command line executed in a terminal, you you need to have some basic understanding of this.
+
+Requirements:
+1.- mac or linux computer
+2.- This script https://github.com/encukou/lastscrape-gui/blob/master/lastexport.py
+3.- Perl, awk, sed...available in most unix systems
+
+
+Steps to run:
+1.- Download all source code along with lastexport.py (see requirements)
+2.- Run lastexport.py (replace with your last fm username)
+
+lastexport.py -u last_username
+
+3.- Once it finishes, run make_urls.sh
+
+make_urls.sh
+ 
+4.- run search.pl, this would search one by one the tracks in spotify.
+
+ cat exported_tracks.urls | ./search.pl 2> /dev/null > exported_tracks.songs
+
+
+
+The output of this process is a file exported_tracks.songs which looks like:
+
+spotify:track:7vIBxqsNQZ3PehEFQr1ZGt
+spotify:track:4u36UgoEkEBKED0BoqYscP
+spotify:track:6LR8aF4sBKLurQ27wAtbiU
+...
+
+It will have as many lines as different songs you have scrobble to lastfm. You can open this file and copy the songs you like and paste them into the playslit you want. The playlist can be empty or already having some songs.
+
+Just make sure you don't put more than 10,000 songs which is the current playlist size limit for spotify.
+
+Enjoy!
+
+twitter.com/MarianoLatorre 
+
+
